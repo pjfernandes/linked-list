@@ -71,17 +71,21 @@ class LinkedList
   end
 
   def find(value)
-    pointer = @head
-    if pointer.nil?
-      "Empty list"
-    else
-      i = 0
-      until pointer.value == value
-        pointer = pointer.next
-        i += 1
+    begin
+      pointer = @head
+      if pointer.nil?
+        "Empty list"
+      else
+        i = 0
+        until pointer.value == value
+          pointer = pointer.next
+          i += 1
+        end
       end
+        "#{value} found at #{i} index"
+    rescue
+      nil
     end
-    "#{pointer.value} found at #{i} index"
   end
 
   private
