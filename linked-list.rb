@@ -88,6 +88,39 @@ class LinkedList
     end
   end
 
+  def contains?(value)
+    begin
+      pointer = @head
+      if pointer.nil?
+        "Empty list"
+      else
+        i = 0
+        until pointer.value == value
+          pointer = pointer.next
+          i += 1
+        end
+      end
+        true
+    rescue
+      false
+    end
+  end
+
+  def to_s
+    pointer = @head
+    if pointer.nil?
+      "Empty list"
+    else
+      str = "(#{head.value})"
+      until pointer.next.nil?
+        pointer = pointer.next
+        value = pointer.value
+        str = str + "->(#{value})"
+      end
+    end
+    str
+  end
+
   private
   def node_at(index)
     pointer = @head
