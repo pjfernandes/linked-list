@@ -8,7 +8,6 @@ class Node
 end
 
 ##############################
-
 class LinkedList
   attr_accessor :head, :size, :tail
 
@@ -18,7 +17,7 @@ class LinkedList
     @size = 0
   end
 
-  def add(data)
+  def append(data)
     if @head.nil?
       @head = Node.new(data)
       @tail = @head
@@ -32,6 +31,13 @@ class LinkedList
       pointer.next = @tail
       @size += 1
     end
+  end
+
+  def prepend(data)
+    new_node = Node.new(data)
+    new_node.next = @head
+    @head = new_node
+    @size += 1
   end
 
   def at(index)
@@ -141,10 +147,10 @@ class LinkedList
       end
     end
   end
-
 end
 
+####################################
 lista = LinkedList.new
-lista.add(7)
-lista.add(8)
-lista.add(9)
+lista.append(7)
+lista.append(8)
+lista.append(9)
